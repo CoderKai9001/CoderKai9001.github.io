@@ -8,8 +8,7 @@ cv:
   image: ""
   summary: >
     Undergraduate researcher at the Robotics Research Center, IIIT Hyderabad, working on
-    visual navigation, 3D vision and robot planning. First author on a CoRL 2026 paper and
-    a co-author on an IROS 2026 paper.
+    Robot Perception and navigation.
 
   social_networks:
     - network: GitHub
