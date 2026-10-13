@@ -1,6 +1,6 @@
 # Aditya Vadali — academic portfolio
 
-Source for <https://coderkai9001.github.io/PortfolioWebsite/>.
+Source for <https://coderkai9001.github.io/>.
 
 Built with [Jekyll](https://jekyllrb.com/) and the
 [al-folio](https://github.com/alshedivat/al-folio) theme. Layouts, styles and includes live
@@ -32,7 +32,7 @@ Requires Docker. From the repository root:
 docker compose up
 ```
 
-Then open <http://localhost:8080/PortfolioWebsite/>. The first run installs the Ruby gems and
+Then open <http://localhost:8080/>. The first run installs the Ruby gems and
 takes a few minutes; afterwards Jekyll watches the directory and live-reloads.
 
 Without the `docker compose` plugin, the equivalent is:
