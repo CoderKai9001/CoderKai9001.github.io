@@ -27,7 +27,7 @@ I have been in RRC since 2025 and have had an amazing experience being involved 
 I have been working on robot perception, 3D vision and navigation so far, and am excited to explore further.
 
 
-My latest hobby is Graphics Programming. Check out my latest [projects]({{ '/projects/' | relative_url }})!. I also play video games
+My latest hobby is Graphics Programming. Check out my latest [projects]({{ '/projects/' | relative_url }})!.
 
 
 <!-- I am **Aditya Vadali**, a fourth-year student at [IIIT Hyderabad](https://www.iiit.ac.in/),

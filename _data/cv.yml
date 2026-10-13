@@ -47,7 +47,7 @@ cv:
           - >
             Designed and ran the Plann3r rebuttal experiments, including a loop-closure extension
             addressing single-traversal assumptions, retrieval-noise sweeps, and bootstrap
-            confidence intervals.
+            confidence intervals.z
           - >
             <strong>PixelLoop &mdash; pixel-level loop closures (IROS 2026).</strong>
             Co-developed a loop-detection pipeline that adds pixel-level loop closures to
@@ -66,6 +66,7 @@ cv:
       - title: "Plann3r: Predicting Planning Costs Grounded in 3D"
         publisher: Conference on Robot Learning (CoRL)
         releaseDate: 2026
+        url: https://plann3r.github.io/
         summary: >
           **A. Vadali**, K. Pandya, V. Garg, N. Chandna, D. Craggs, F. Dayoub,
           K. M. Krishna, S. Garg.<br>
@@ -76,7 +77,7 @@ cv:
         publisher: IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
         releaseDate: 2026
         # TODO: verify this arXiv ID -- the CV lists 2607.12811, which looks like a typo.
-        url: https://arxiv.org/abs/2607.12811
+        url: https://pixelloop-nav.github.io/
         summary: >
           S. Chittawar, V. Garg, **A. Vadali**, K. Pandya, R. Jayanti, S. Garg,
           K. M. Krishna.<br>
