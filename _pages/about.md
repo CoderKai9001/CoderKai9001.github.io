@@ -11,24 +11,26 @@ profile:
   align: right
   image: prof_pic.jpeg
   image_circular: true # crops the image to make it circular
-  more_info: >
-    <p>Robotics Research Center</p>
-    <p>IIIT Hyderabad, India</p>
-    <p>Advisor: Prof. K. Madhava Krishna</p>
-    <p>Collaborator: Prof. Sourav Garg</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
-# No _news or _posts directory in this site.
 announcements:
-  enabled: false
+  enabled: True
 
 latest_posts:
-  enabled: false
+  enabled: False
 ---
 
-I am **Aditya Vadali**, a fourth-year student at [IIIT Hyderabad](https://www.iiit.ac.in/),
+I'm **Aditya**, an Undergrad Researcher at <a href="https://robotics.iiit.ac.in/">Robotics Research Centre</a> and a 4th year student in a Dual Degree (B.Tech + MS by Research) program at <a href="https://www.iiit.ac.in/">IIITH</a>. I am advised by <a href="https://madhavak-iiith.github.io/">K.Madhava Krishna</a> and am also working with <a  href="https://oravus.github.io/">Sourav Garg</a> 
+I have been in RRC since 2025 and have had an amazing experience being involved in robotics research.
+I have been working on robot perception, 3D vision and navigation so far, and am excited to explore further.
+
+
+My latest hobby is Graphics Programming. Check out my latest [projects]({{ '/projects/' | relative_url }})!. I also play video games
+
+
+<!-- I am **Aditya Vadali**, a fourth-year student at [IIIT Hyderabad](https://www.iiit.ac.in/),
 in the Dual Degree (B.Tech + MS by Research) programme in Computer Science. Since May 2024
 I have been an undergraduate researcher at the
 [Robotics Research Center](https://robotics.iiit.ac.in/) (RRC), advised by
@@ -50,4 +52,4 @@ RGB-only last-mile docking for mobile robots. Away from the lab I build things u
 pressure: four hackathon wins between 2024 and 2026, including a Stable Diffusion style
 editor running entirely on a Qualcomm NPU and a mess crowd-prediction system that now ships
 inside the official MyIIIT app. Have a look at my [projects]({{ '/projects/' | relative_url }}) or my
-[CV]({{ '/cv/' | relative_url }}).
+[CV]({{ '/cv/' | relative_url }}). -->
