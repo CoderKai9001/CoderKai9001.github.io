@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aditya Vadali</title>
+    <meta name="description" content="Aditya Vadali: Dual Degree (B.Tech + MS by Research) student in Computer Science at IIIT Hyderabad and undergraduate researcher at the Robotics Research Center, working on 3D vision, visual navigation and robot planning." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Pixelify+Sans:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/theme.js"></script>
+  </head>
+
+  <body data-page="home">
+    <header id="site-header" class="site-header"></header>
+
+    <main class="container">
+      <section class="intro">
+        <figure class="portrait">
+          <!-- Photo: assets/img/profile.jpg. data-zoom / data-focus set the crop; click toggles dithering. -->
+          <canvas
+            data-dither="image"
+            data-src="assets/img/profile.jpg"
+            data-scale="1.5"
+            data-zoom="2.2"
+            data-focus="0.5 0.26"
+            data-contrast="1.2"
+            data-brightness="0.15"
+            data-toggle
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Portrait of Aditya Vadali (click to toggle dithering)"
+            title="Click to see the original photo"
+          ></canvas>
+        </figure>
+
+        <div class="intro-text">
+          <p class="eyebrow">
+            Undergraduate Researcher &middot; Robotics Research Center &middot; IIIT Hyderabad
+          </p>
+          <h1>Aditya Vadali</h1>
+          <p>
+            I'm <strong>Aditya</strong>, an undergraduate researcher at the
+            <a href="https://robotics.iiit.ac.in/">Robotics Research Center</a> and a fourth-year
+            student in the Dual Degree (B.Tech + MS by Research) program in Computer Science at
+            <a href="https://www.iiit.ac.in/">IIIT Hyderabad</a>. I am advised by
+            <a href="https://madhavak-iiith.github.io/">K. Madhava Krishna</a> and also work with
+            <a href="https://oravus.github.io/">Sourav Garg</a>.
+          </p>
+          <p>
+            Being part of RRC has been an amazing introduction to robotics research. I have been
+            working on robot perception, 3D vision and navigation, and I'm excited to explore
+            further.
+          </p>
+          <p>
+            My latest hobby is graphics programming. Check out my
+            <a href="projects.html#perlin-terrain">procedural terrain generator</a> and my other
+            <a href="projects.html">projects</a>!
+          </p>
+          <p class="interests">
+            <strong>Interests:</strong> Visual navigation &middot; 3D vision &middot; Visual place
+            recognition &middot; Robot planning
+          </p>
+          <ul class="links" data-site-links></ul>
+          <p class="contact-note">Email is the best way to reach me.</p>
+        </div>
+      </section>
+
+      <section class="pubs" aria-labelledby="pubs-title">
+        <h2 id="pubs-title" class="section-title">Publications</h2>
+        <!-- Entries live in data/publications.js -->
+        <ol class="pub-list" data-publications data-thumbs></ol>
+      </section>
+
+      <section class="news" aria-labelledby="news-title">
+        <h2 id="news-title" class="section-title">News</h2>
+        <!-- Entries live in data/news.js -->
+        <ol id="news-list" class="news-list" data-limit="5"></ol>
+        <button id="news-toggle" class="btn" type="button" aria-expanded="false" hidden></button>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+
+    <script src="data/site.js"></script>
+    <script src="data/news.js"></script>
+    <script src="data/publications.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/news.js"></script>
+    <script src="assets/js/publications.js"></script>
+    <script src="assets/js/dither.js"></script>
+  </body>
+</html>

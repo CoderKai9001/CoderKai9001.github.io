@@ -1,49 +1,58 @@
-# Aditya Vadali — academic portfolio
+# Personal research site
 
-Source for <https://coderkai9001.github.io/>.
+A static, dependency-free site with a 1-bit dithered look. No build step.
 
-Built with [Jekyll](https://jekyllrb.com/) and the
-[al-folio](https://github.com/alshedivat/al-folio) theme. Layouts, styles and includes live
-in the `al_folio_core` gem, so this repository holds content and configuration only.
-
-## Editing content
-
-| What | Where |
-|---|---|
-| Bio, profile photo, subtitle | `_pages/about.md` |
-| Publications | `_bibliography/papers.bib` (rendered by jekyll-scholar) |
-| Project cards | `_projects/*.md` — `category` must be one of `research`, `hackathons`, `systems` |
-| CV page | `_data/cv.yml` |
-| Social icons, CV link | `_data/socials.yml` |
-| Site title, URL, theme options | `_config.yml` |
-| Images and PDFs | `assets/img/`, `assets/pdf/` |
-
-Outstanding placeholders are marked `TODO`:
+## Run locally
 
 ```sh
-grep -rn TODO _bibliography _data _pages _projects
+python3 -m http.server 8000
+# open http://localhost:8000
 ```
 
-## Previewing locally
+Opening `index.html` directly from disk mostly works, but browsers won't let
+the page read pixels from a local photo, so your portrait will show undithered.
+Use a local server (or any static host, e.g. GitHub Pages) to see it dithered.
 
-Requires Docker. From the repository root:
+## Layout
 
-```sh
-docker compose up
+```
+index.html            home: intro, photo, news
+publications.html     papers
+projects.html         projects, grouped by category
+cv.html               CV + PDF downloads
+404.html              not-found page (used by GitHub Pages)
+_template.html        copy this to start a new page
+
+data/                 ← content lives here
+  site.js             name, navigation, contact links (shared by all pages)
+  news.js             news entries
+  publications.js     papers (also shown in the CV)
+  projects.js         projects and their categories
+  cv.js               CV sections
+
+assets/css/style.css  all styles; colour/font tokens at the top
+assets/js/            renderers for each data file, plus:
+  layout.js           header, nav, footer, link lists
+  dither.js           dithering engine for <canvas data-dither>
+  theme.js            applies the saved light/dark choice early
+assets/img/           images (profile.jpg is the portrait)
+assets/pdf/           CV and resume PDFs
 ```
 
-Then open <http://localhost:8080/>. The first run installs the Ruby gems and
-takes a few minutes; afterwards Jekyll watches the directory and live-reloads.
+## Common edits
 
-Without the `docker compose` plugin, the equivalent is:
+- **Post news:** add an entry to `data/news.js`. Order doesn't matter; it's sorted by date.
+- **Add a paper:** add it to the top of `data/publications.js`. It appears on the
+  Publications page and in the CV.
+- **Add a project:** add an entry to `data/projects.js`. Set `img` to show a dithered
+  picture; link to it from elsewhere with `projects.html#<id>`.
+- **Change your photo:** replace `assets/img/profile.jpg`. Tune the look on the canvas
+  in `index.html`: `data-scale` (pixel size), `data-zoom` / `data-focus` (crop),
+  `data-contrast`, `data-brightness`, `data-algo="atkinson" | "bayer"`.
+- **Add a page:** copy `_template.html`, set `data-page` on `<body>`, and add a
+  matching entry to `nav` in `data/site.js`.
+- **Recolour:** edit the tokens at the top of `style.css`. `--dither-dark` and
+  `--dither-light` must be hex colours.
 
-```sh
-docker run --rm -p 8080:8080 -p 35729:35729 \
-  -v "$PWD":/srv/jekyll -e JEKYLL_ENV=development \
-  amirpourmand/al-folio:latest /srv/jekyll/bin/entry_point.sh
-```
-
-## Deployment
-
-`.github/workflows/deploy.yml` builds the site on every push to `main` and publishes `_site`
-to the `gh-pages` branch, which is what GitHub Pages serves. No manual step is needed.
+Renderers that create `<canvas data-dither>` elements must be loaded before
+`assets/js/dither.js`.
