@@ -1,0 +1,50 @@
+<!doctype html>
+<!--
+  Starting point for new pages (blog, projects, CV, ...).
+  1. Copy this file, e.g. to blog.html.
+  2. Set <title> and <body data-page="blog">.
+  3. Add { id: "blog", label: "Blog", href: "blog.html" } to `nav` in data/site.js.
+  Anything inside .prose gets readable long-form styling. Any
+  <canvas data-dither="image" data-src="..."> is dithered automatically.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Title &middot; Aditya Vadali</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Pixelify+Sans:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/theme.js"></script>
+  </head>
+
+  <body data-page="TEMPLATE">
+    <header id="site-header" class="site-header"></header>
+
+    <main class="container">
+      <header class="page-header">
+        <p class="eyebrow">Section</p>
+        <h1>Page Title</h1>
+      </header>
+
+      <article class="prose">
+        <p>Page content goes here.</p>
+
+        <h2 class="section-title">A section</h2>
+        <p>More content.</p>
+      </article>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+
+    <script src="data/site.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/dither.js"></script>
+  </body>
+</html>
