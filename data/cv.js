@@ -85,21 +85,28 @@ window.CV = {
       title: "Projects",
       entries: [
         {
-          title: "Splatt3r-SfM",
+          title: '<a href="https://github.com/CoderKai9001/PerlinNoiseTerrainGeneration">Perlin Noise Terrain</a>',
+          org: "Computer Graphics",
+          dates: "2026",
+          summary:
+            "Procedural terrain in ModernGL and GLSL: multi-octave Perlin noise evaluated in the vertex shader with analytic normals, Blinn-Phong lighting, hemisphere ambient and fake ambient occlusion.",
+        },
+        {
+          title: '<a href="https://github.com/CoderKai9001/Splatt3r-SFM">Splatt3r-SfM</a>',
           org: "3D Vision",
           dates: "2025",
           summary:
             "Combined MASt3R-SfM N-view pose estimation with Splatt3r's 2-view Gaussian head, fusing pairwise splats into a single aligned scene for feed-forward novel view synthesis from unposed images.",
         },
         {
-          title: "NoMaD Deployment on Pioneer P3DX",
+          title: '<a href="https://github.com/CoderKai9001/NoMaD-RPN">NoMaD Deployment on Pioneer P3DX</a>',
           org: "Robot Navigation",
           dates: "2025",
           summary:
             "Deployed an image-goal navigation model on a Pioneer P3DX over ROS for closed-loop control, optimizing inference for real-time onboard operation.",
         },
         {
-          title: "Construction Site Safety Hazard Checker",
+          title: '<a href="https://github.com/CoderKai9001/ConstructionSiteMonitoringAndroid">Construction Site Safety Hazard Checker</a>',
           org: "Edge Computer Vision",
           summary:
             "Fine-tuned YOLOv11 on an edge device to detect helmet, safety-vest and glove compliance, with an admin dashboard for worker-density monitoring and email hazard alerts.",

@@ -7,6 +7,8 @@
  *   description: one-line summary
  *   body:        HTML
  *   img:         optional image path, shown dithered
+ *   imgDither:   optional dither.js options for img, e.g. { contrast: 2, brightness: 0.3 },
+ *                or false to show the image as-is
  *   links:       optional [{ label, href }]
  */
 window.PROJECT_CATEGORIES = {
@@ -32,6 +34,7 @@ window.PROJECTS = [
       <strong>fully on-device on the Qualcomm QIDK's NPU</strong>: not a GPU, and not
       something any standard inference stack targets out of the box. Getting a diffusion
       pipeline to fit and run on that neural engine was most of the hackathon.</p>`,
+    links: [{ label: "Code", href: "https://github.com/CoderKai9001/SnapGen-Local-AI-image-editor" }],
   },
   {
     id: "yoga-pose-coach",
@@ -49,6 +52,7 @@ window.PROJECTS = [
       <p>Like SnapGen a year later, it had to be deployed on the <strong>Qualcomm QIDK
       NPU</strong>, which was my first encounter with getting a model onto hardware that
       behaves nothing like a GPU.</p>`,
+    links: [{ label: "Code", href: "https://github.com/CoderKai9001/Pose-Detection-android" }],
   },
   {
     id: "agentic-data-repair",
@@ -64,6 +68,7 @@ window.PROJECTS = [
       <strong>human in the loop</strong>: in a bank, an agent that silently rewrites records is
       a liability, so every proposed repair is surfaced for a person to approve, reject or
       amend before anything is committed.</p>`,
+    links: [{ label: "Code", href: "https://github.com/CoderKai9001/lloyds-hackathon" }],
   },
   {
     id: "mess-crowd-predictor",
@@ -90,6 +95,29 @@ window.PROJECTS = [
 
   // ---- systems -----------------------------------------------------------
   {
+    id: "perlin-terrain",
+    title: "Perlin Noise Terrain",
+    category: "systems",
+    importance: 0,
+    description: "Procedural terrain in ModernGL and GLSL, built up one step at a time",
+    img: "assets/img/projects/perlin-terrain.png",
+    imgDither: false,
+    body: `
+      <p>A procedurally generated, lit terrain written in Python with <strong>ModernGL</strong>
+      and <strong>GLSL</strong>. It is built up as a sequence of small programs, each adding one
+      idea to the last: a rotating triangle with hand-written MVP matrices, a point grid, a
+      triangulated mesh, and finally terrain.</p>
+      <p>Heights come from <strong>Perlin noise</strong> stacked over several octaves (fractal
+      Brownian motion), lit with <strong>Blinn-Phong</strong> shading. The last version moves
+      everything into the <strong>vertex shader</strong>: gradients come from a hash of the
+      lattice coordinates and normals from the analytic derivative of the noise, so the CPU
+      uploads a flat grid once and much denser terrain becomes practical.</p>
+      <p>Instead of real shadows, two cheap tricks: a sky/ground hemisphere ambient that darkens
+      steep slopes, and a fake ambient occlusion that darkens points sitting below a smoothed,
+      low-octave copy of the terrain.</p>`,
+    links: [{ label: "Code", href: "https://github.com/CoderKai9001/PerlinNoiseTerrainGeneration" }],
+  },
+  {
     id: "construction-safety",
     title: "Construction Site Safety Checker",
     category: "systems",
@@ -103,6 +131,10 @@ window.PROJECTS = [
       <p>On top of the detector we built an <strong>admin dashboard</strong> that tracks
       worker density across the site and sends <strong>email notifications</strong> when a
       hazard or a compliance violation is detected.</p>`,
+    links: [
+      { label: "App & dashboard", href: "https://github.com/CoderKai9001/ConstructionSiteMonitoringAndroid" },
+      { label: "Model training", href: "https://github.com/CoderKai9001/ConstructionSiteanalysis" },
+    ],
   },
   {
     id: "distributed-nfs",

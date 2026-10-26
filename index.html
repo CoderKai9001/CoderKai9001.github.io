@@ -23,7 +23,7 @@
     <main class="container">
       <section class="intro">
         <figure class="portrait">
-          <!-- Photo: assets/img/profile.jpg. data-zoom / data-focus set the crop. -->
+          <!-- Photo: assets/img/profile.jpg. data-zoom / data-focus set the crop; click toggles dithering. -->
           <canvas
             data-dither="image"
             data-src="assets/img/profile.jpg"
@@ -32,10 +32,13 @@
             data-focus="0.5 0.26"
             data-contrast="1.2"
             data-brightness="0.15"
-            role="img"
-            aria-label="Portrait of Aditya Vadali"
+            data-toggle
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Portrait of Aditya Vadali (click to toggle dithering)"
+            title="Click to see the original photo"
           ></canvas>
-          <figcaption>fig. 1 &mdash; the author</figcaption>
         </figure>
 
         <div class="intro-text">
@@ -57,7 +60,8 @@
             further.
           </p>
           <p>
-            My latest hobby is graphics programming. Check out my latest
+            My latest hobby is graphics programming. Check out my
+            <a href="projects.html#perlin-terrain">procedural terrain generator</a> and my other
             <a href="projects.html">projects</a>!
           </p>
           <p class="interests">

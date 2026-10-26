@@ -16,6 +16,7 @@
  *   data-brightness  default 0 (range roughly -0.5 .. 0.5)
  *   data-zoom        crop in on images, default 1
  *   data-focus       "x y" point of the image (0..1) to keep centred, default "0.5 0.5"
+ *   data-toggle      clicking the canvas switches between dithered and the original image
  */
 (function () {
   "use strict";
@@ -219,8 +220,29 @@
     canvas.replaceWith(el);
   }
 
+  function crop(canvas) {
+    return {
+      zoom: parseFloat(canvas.dataset.zoom) || 1,
+      focus: (canvas.dataset.focus || "0.5 0.5").split(/\s+/).map(Number),
+    };
+  }
+
+  // The undithered photo, same crop, at full device resolution.
+  function renderOriginal(canvas, img) {
+    const r = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.round(r.width * dpr));
+    canvas.height = Math.max(1, Math.round(r.height * dpr));
+    const { zoom, focus } = crop(canvas);
+    drawCover(canvas.getContext("2d"), img, canvas.width, canvas.height, zoom, focus);
+  }
+
   function render(canvas) {
     if (!ready.has(canvas) || !canvas.isConnected) return;
+    if (canvas.dataset.original === "true" && images.has(canvas)) {
+      renderOriginal(canvas, images.get(canvas));
+      return;
+    }
     const { w, h } = size(canvas);
     const mode = canvas.dataset.dither;
     let lum;
@@ -236,8 +258,7 @@
       const ctx = src.getContext("2d", { willReadFrequently: true });
       const img = images.get(canvas);
       if (img) {
-        const zoom = parseFloat(canvas.dataset.zoom) || 1;
-        const focus = (canvas.dataset.focus || "0.5 0.5").split(/\s+/).map(Number);
+        const { zoom, focus } = crop(canvas);
         drawCover(ctx, img, w, h, zoom, focus);
       }
       else drawPlaceholder(ctx, w, h);
@@ -281,6 +302,25 @@
       ready.add(canvas);
     }
   });
+
+  // data-toggle: click (or Enter / Space) switches between dithered and original.
+  canvases
+    .filter((c) => "toggle" in c.dataset)
+    .forEach((canvas) => {
+      const toggle = () => {
+        const original = canvas.dataset.original !== "true";
+        canvas.dataset.original = String(original);
+        canvas.setAttribute("aria-pressed", String(original));
+        render(canvas);
+      };
+      canvas.addEventListener("click", toggle);
+      canvas.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
 
   // Re-dither when a canvas changes size (debounced per frame).
   let pending = new Set();

@@ -20,10 +20,23 @@
       .join("")}</ul>`;
   }
 
+  // { contrast: 2, zoom: 1.2 } -> ' data-contrast="2" data-zoom="1.2"' (see dither.js)
+  function ditherAttrs(opts) {
+    return Object.keys(opts || {})
+      .map((k) => ` data-${k}="${opts[k]}"`)
+      .join("");
+  }
+
+  function image(p) {
+    if (!p.img) return "";
+    if (p.imgDither === false) {
+      return `<img class="project-img" src="${p.img}" alt="${p.title}" loading="lazy" />`;
+    }
+    return `<canvas class="project-img" data-dither="image" data-src="${p.img}"${ditherAttrs(p.imgDither)} role="img" aria-label="${p.title}"></canvas>`;
+  }
+
   function render(p, i) {
-    const img = p.img
-      ? `<canvas class="project-img" data-dither="image" data-src="${p.img}" role="img" aria-label="${p.title}"></canvas>`
-      : "";
+    const img = image(p);
     return `<article class="project" id="${p.id}">
       <span class="project-index">${String(i + 1).padStart(2, "0")}</span>
       <div class="project-body">

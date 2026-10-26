@@ -6,7 +6,7 @@
  *   venue (full name), short (badge text, e.g. "CoRL 2026"), year,
  *   note (optional HTML), links (optional [{ label, href }]),
  *   thumb (optional image; also the video poster), video (optional looping clip)
- * Thumbnails show wherever the list has data-thumbs (the home page).
+ * Thumbnails show wherever the list has data-thumbs (home and Publications pages).
  */
 window.PUBLICATIONS = [
   {
