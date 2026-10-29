@@ -35,7 +35,7 @@ assets/js/            renderers for each data file, plus:
   layout.js           header, nav, footer, link lists
   dither.js           dithering engine for <canvas data-dither>
   theme.js            applies the saved light/dark choice early
-assets/img/           images (profile.jpg is the portrait)
+assets/img/           images (profile_2.jpeg is the portrait)
 assets/pdf/           CV and resume PDFs
 ```
 
@@ -46,7 +46,7 @@ assets/pdf/           CV and resume PDFs
   Publications page and in the CV.
 - **Add a project:** add an entry to `data/projects.js`. Set `img` to show a dithered
   picture; link to it from elsewhere with `projects.html#<id>`.
-- **Change your photo:** replace `assets/img/profile.jpg`. Tune the look on the canvas
+- **Change your photo:** replace `assets/img/profile_2.jpeg`. Tune the look on the canvas
   in `index.html`: `data-scale` (pixel size), `data-zoom` / `data-focus` (crop),
   `data-contrast`, `data-brightness`, `data-algo="atkinson" | "bayer"`.
 - **Add a page:** copy `_template.html`, set `data-page` on `<body>`, and add a
